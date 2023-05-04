@@ -13,10 +13,10 @@ let QuickSort = (a) => {
     let right = [];
     for(let i = 1; i < a.length; i++){
         if(a[i] < pivot){
-            leftA.push(a[i]);
+            left.push(a[i]);
         }
         else{
-            rightA.push(a[i]);
+            right.push(a[i]);
         }
     }
     return(QuickSort(left)+pivot+QuickSort(right));
