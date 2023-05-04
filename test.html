@@ -7,34 +7,36 @@
 <body>
   <script>
 
-    function quickSort(array) {
-    if (array.length <= 1) {
-      return array;
+let QuickSort = (a) => {    
+    let pivot =  a[0];
+    let left = [];
+    let right = [];
+    for(let i = 1; i < a.length; i++){
+        if(a[i] < pivot){
+            leftA.push(a[i]);
+        }
+        else{
+            rightA.push(a[i]);
+        }
+    }
+    return(QuickSort(left)+pivot+QuickSort(right));
     }
     
-    let pivotIndex = Math.floor(array.length / 2);
-    let  pivot = array[pivotIndex];
-    let less = [];
-    let greater = [];
-  
-    for (let i = 0; i < array.length; i++) {
-      if (i === pivotIndex) {
-        continue;
-      }
-  
-      if (array[i] <= pivot) {
-        less.push(array[i]);
-      } else {
-        greater.push(array[i]);
-      }
+    
+    
+    let array=[3,0,2,4,5,-1,1,12,15,1];
+    console.log(QuickSort(array));
+    
+    function removeDuplicates(array) {
+        let unique = [];
+        for (i = 0; i < array.length; i++) {
+            if (unique.indexOf(array[i]) === -1) {
+                unique.push(array[i]);
+            }
+        }
+        return unique;
     }
-  
-    return [...quickSort(less), pivot, ...quickSort(greater)];
-  }
-  
-  let array = [3, 0, 2, 5, -1, 4, 1, 10, 23, 15, 20, 12];
-  let sortedArray = quickSort(array);
-  console.log(sortedArray); // Output: [-1, 0, 1, 2, 3, 4, 5, 10, 12, 15, 20, 23]
+    console.log(removeDuplicates(array));
   
   </script>
 
