@@ -7,37 +7,41 @@
 <body>
   <script>
 
-let QuickSort = (a) => {    
-    let pivot =  a[1];
-    let left = [];
-    let right = [];
-    for(let i = 1; i < a.length; i++){
-        if(a[i] < pivot){
-            left.push(a[i]);
-        }
-        else{
-            right.push(a[i]);
-        }
+ const quickSort = (arr) => {
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  let pivot = arr[0];
+  let leftArr = [];
+  let rightArr = [];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < pivot) {
+      leftArr.push(arr[i]);
+    } else {
+      rightArr.push(arr[i]);
     }
-    return(QuickSort(left)+pivot+QuickSort(right));
-    }
-    
-    
-    
-    let array=[3,0,2,4,5,-1,1,12,15,1];
-    console.log(QuickSort(array));
-    
-    function removeDuplicates(array) {
-        let unique = [];
-        for (i = 0; i < array.length; i++) {
-            if (unique.indexOf(array[i]) === -1) {
-                unique.push(array[i]);
-            }
-        }
-        return unique;
-    }
-    console.log(removeDuplicates(array));
-  
+  }
+
+  return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
+}; 
+const pivot = arr[0];
+let leftArr = [];
+let rightArr = [];
+
+for (let i = 1; i < arr.length; i++) {
+  if (arr[i] < pivot) {
+    leftArr.push(arr[i]);
+  } else {
+    rightArr.push(arr[i]);
+  }
+}
+return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
+if (arr.length <= 1) {
+  return arr;
+}let myArray = [3, 0 ,2 ,5, -1 , 4, 1,10, 23, 15 ,20 ,12];
+console.log(quicksort(myArray)); 
   </script>
 
 </body>
